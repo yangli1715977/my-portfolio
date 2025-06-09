@@ -1,0 +1,64 @@
+/* src/App.css (一个干净的基础样式) */
+:root {
+  --primary-color: #00c6ff;
+  --secondary-color: #0072ff;
+  --bg-color: #0a0a0a;
+  --card-bg-color: rgba(22, 22, 22, 0.8);
+  --text-color: #e0e0e0;
+  --glow-color: var(--primary-color);
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  margin: 0;
+  overscroll-behavior: none; /* 防止拖拽时页面滚动 */
+}
+
+.container {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 20px;
+  position: relative; /* 为了辉光效果 */
+  z-index: 2;
+}
+
+header { text-align: center; margin-bottom: 60px; }
+.avatar { width: 120px; height: 120px; border-radius: 50%; border: 3px solid var(--primary-color); }
+h1 { font-size: 2.8rem; margin: 15px 0 5px; background: linear-gradient(90deg, var(--primary-color), var(--secondary-color)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+.subtitle { font-size: 1.2rem; color: #aaa; }
+
+section {
+  background: var(--card-bg-color);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  padding: 30px;
+  margin-bottom: 30px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+h2 { font-size: 2rem; border-bottom: 2px solid; border-image: linear-gradient(90deg, var(--primary-color), var(--secondary-color)) 1; padding-bottom: 10px; margin-top: 0; }
+
+.skills-grid { display: flex; flex-wrap: wrap; gap: 12px; }
+.skills-grid span { background-color: rgba(255, 255, 255, 0.1); padding: 8px 15px; border-radius: 20px; font-weight: 500; }
+
+.contact-links a { margin-right: 20px; color: var(--primary-color); text-decoration: none; font-weight: bold; transition: color 0.2s; }
+.contact-links a:hover { color: var(--secondary-color); }
+
+
+/* src/App.css - 新增样式 */
+.skill-card {
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 20px 25px;
+  border-radius: 10px;
+  font-weight: 500;
+  cursor: grab; /* 提示可以抓取 */
+  display: inline-block; /* 保证 motion.div 是块级元素 */
+  position: relative; /* 为了 zIndex 生效 */
+}
+
+.skill-card:active {
+  cursor: grabbing; /* 抓取时的手势 */
+}
