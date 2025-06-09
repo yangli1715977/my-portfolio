@@ -6,18 +6,28 @@ export default function AIBioGenerator() {
   const [bio, setBio] = useState('');
   const [isLoading, setIsLoading] = useState(false);
 
+
+
+
   const generateBio = async () => {
-    setBio(''); // 清空旧内容
+    setBio('');
     setIsLoading(true);
-
+  
     try {
-      // 请求我们刚刚创建的后端 API
-      const response = await fetch('/api/generate-bio');
+      // 【重大变化】将 fetch 请求改为 POST
+      const response = await fetch('/api/generate-bio', {
+        method: 'POST', // <-- 指定方法为 POST
+        headers: {
+          'Content-Type': 'application/json', // <-- 告知服务器我们发送的是 JSON
+        },
+        // body: JSON.stringify({ prompt: "你的自定义 prompt" }) // 如果你想从前端传 prompt，可以这样写
+      });
+  
       if (!response.ok) {
-        throw new Error('网络响应错误');
+        throw new Error(`HTTP error! status: ${response.status}`);
       }
-
-      // 处理流式数据
+  
+      // ... 后续处理流数据的代码保持不变 ...
       const reader = response.body.getReader();
       const decoder = new TextDecoder();
       
@@ -27,12 +37,12 @@ export default function AIBioGenerator() {
           break;
         }
         const chunk = decoder.decode(value);
-        // 实时更新 bio 状态，形成打字机效果
         setBio((prev) => prev + chunk);
       }
+  
     } catch (error) {
       console.error('生成简介时出错:', error);
-      setBio('生成失败，请稍后再试。');
+      setBio(`生成失败: ${error.message}。请检查 API 控制台。`);
     } finally {
       setIsLoading(false);
     }
