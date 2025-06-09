@@ -10,22 +10,19 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "ai": "^3.1.1", // 我们也锁定一个非常稳定的 ai 版本  <-- 这里的注释是无效的JSON！
+    "ai": "^3.1.1",
     "framer-motion": "^11.2.10",
     "openai": "^4.49.1",
-    "react": "^18.2.0", // <-- 修改这里
-    "react-dom": "^18.2.0", // <-- 修改这里
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "react-type-animation": "^3.2.0"
-  }, // <--- 这里的逗号后面，`devDependencies` 前面，是不是少了什么？或者多了什么？
+  },
   "devDependencies": {
-    "@eslint/js": "^9.25.0",
-    "@types/react": "^19.1.2",
-    "@types/react-dom": "^19.1.2",
-    "@vitejs/plugin-react": "^4.4.1",
-    "eslint": "^9.25.0",
-    "eslint-plugin-react-hooks": "^5.2.0",
-    "eslint-plugin-react-refresh": "^0.4.19",
-    "globals": "^16.0.0",
-    "vite": "^6.3.5"
+    "@vitejs/plugin-react": "^4.2.1",
+    "eslint": "^8.57.0",
+    "eslint-plugin-react": "^7.34.1",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-react-refresh": "^0.4.6",
+    "vite": "^5.2.0"
   }
 }
